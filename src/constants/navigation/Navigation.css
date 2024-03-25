@@ -1,0 +1,30 @@
+.top-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 12px;
+}
+
+.bottom-navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 8px 0;
+}
+
+.logo {
+    font-weight: bold;
+}
+
+.website-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-right: auto;
+}
+
+.sign-in-button {
+    margin-left: auto;
+}
+
+/* Stijl voor NavButton blijft hetzelfde als in NavButton.css */
