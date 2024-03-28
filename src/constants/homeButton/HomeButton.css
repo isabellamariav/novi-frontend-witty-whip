@@ -1,0 +1,20 @@
+/* HomeButton.css */
+.home-button {
+    background-color: #FFFFFF; /* Set background color to white */
+    border: 2px solid #F4EFEA;
+    color: #333333;
+    padding: 8px 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    width: 230px;
+    height: 80px;
+    background-size: cover;
+}
+
+.home-button:hover {
+    background-image: url('../../assets/woodButton.jpg');
+    border: 2px solid #F4EFEA;
+}

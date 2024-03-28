@@ -1,4 +1,3 @@
-// Navigation.jsx
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import NavButton from '../navButton/NavButton';
@@ -57,7 +56,7 @@ const NavItem = ({ to, text, icon }) => {
 NavItem.propTypes = {
     to: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
-    icon: PropTypes.string, // assuming icon is a string path
+    icon: PropTypes.string,
 };
 
 export default Navigation;
