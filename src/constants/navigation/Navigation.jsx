@@ -15,14 +15,14 @@ const Navigation = () => {
             <div className="top-navbar">
                 <div className="left-section">
                     <div className="logo">
-                        <Link to="/home"> {/* Link to home page */}
+                        <Link to="/home">
                             <img src={logo} alt="Logo" />
                         </Link>
                     </div>
                 </div>
                 <div className="center-section">
                     <div className="website-name">
-                        <Link to="/home">Witty Whip</Link> {/* Link to home page */}
+                        <Link to="/home">Witty Whip</Link>
                     </div>
                 </div>
                 <div className="right-section">

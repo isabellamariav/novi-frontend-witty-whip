@@ -4,25 +4,24 @@
     justify-content: center;
     align-items: center;
     margin: 20px 20px;
-    height: 100vh; /* Set height to 100% of viewport height */
+    height: 100vh;
     width: 100vw;
 }
 
 h3 {
-    margin-bottom: 9vh; /* Add margin to create space between h3 and buttons */
+    margin-bottom: 9vh;
 }
 
 .button-container {
     display: flex;
-    flex-direction: row; /* Change to row to display buttons horizontally */
-    justify-content: center; /* Center the buttons horizontally */
-    gap: 7vw; /* Gap between buttons as 7% of viewport width */
+    flex-direction: row;
+    justify-content: center;
+    gap: 7vw;
 }
 
-/* Media query to handle smaller screens */
 @media (max-width: 768px) {
     .button-container {
         flex-direction: column;
-        gap: 3vh; /* Gap between buttons as 3% of viewport height */
+        gap: 3vh;
     }
 }

@@ -4,7 +4,7 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <div className="container"> {/* Add container class here */}
+        <div className="container">
             <h1>Welcome!</h1>
             <h2>Find the perfect recipe with Witty Whip</h2>
             <h3>A smart and easy way to find your recipes</h3>

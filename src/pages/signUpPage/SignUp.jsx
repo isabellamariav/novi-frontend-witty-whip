@@ -1,9 +1,12 @@
-import React from 'react';
+import SignInUp from '../../constants/signInUpCard/SignInUpCard.jsx';
+import './SignUp.css';
 
 function SignUp() {
     return (
         <div>
-            <p>Here goes the content of the sign up page.</p>
+            <div className="sign-up-page">
+                <SignInUp isSignUp={true}/>
+            </div>
         </div>
     );
 }

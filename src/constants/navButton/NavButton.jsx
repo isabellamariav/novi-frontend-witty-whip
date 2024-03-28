@@ -1,4 +1,3 @@
-// NavButton.jsx
 import PropTypes from "prop-types";
 import "./NavButton.css";
 
@@ -13,7 +12,7 @@ const NavButton = ({ text, icon }) => {
 
 NavButton.propTypes = {
     text: PropTypes.string.isRequired,
-    icon: PropTypes.string, // Path to the icon image
+    icon: PropTypes.string,
 };
 
 export default NavButton;

@@ -3,7 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; /* Ensure the navbar is above other content */
+    z-index: 1000;
 }
 
 .top-navbar {
@@ -16,11 +16,11 @@
 
 .bottom-navbar {
     display: flex;
-    justify-content: space-between; /* evenly split buttons */
+    justify-content: space-between;
     background-color: #FCFBF9;
     padding: 8px 0;
-    margin: 0 10px;
-    border-bottom: 2px solid #F4EFEA; /* Add a 2px horizontal line under the bottom-navbar */
+    margin: 0 0;
+    border-bottom: 2px solid #F4EFEA;
 }
 
 .logo img {
@@ -31,17 +31,17 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
-    color: #333333; /* Set the color to the original color */
+    color: #333333;
 }
 
 .website-name a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent (.website-name) */
-    font-weight: bold; /* Make the text a bit bolder */
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
 }
 
 .website-name a:hover {
-    color: #333333; /* Keep the same color on hover */
+    color: #333333;
 }
 
 .left-section,
@@ -51,21 +51,20 @@
 }
 
 .right-section {
-    display: flex; /* Change to flex to align items */
-    justify-content: flex-end; /* Align content to the right */
+    display: flex;
+    justify-content: flex-end;
 }
 
 .sign-in-button .nav-button {
-    background-color: white; /* Set default background color to white */
-    color: black; /* Set default text color to black */
+    background-color: white;
+    color: black;
 }
 
 .sign-in-button:hover .nav-button {
-    background-color: #FCFBF9; /* Change background color to #FCFBF9 on hover */
+    background-color: #FCFBF9;
 }
 
 @media screen and (max-width: 768px) {
-    /* Adjust styles for smaller screens */
     .top-navbar {
         padding: 8px;
     }
