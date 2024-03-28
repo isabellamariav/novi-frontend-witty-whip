@@ -1,3 +1,13 @@
+/* Navigation.css */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar is above other content */
+}
+
 .top-navbar {
     display: flex;
     justify-content: space-between;
@@ -8,7 +18,7 @@
 
 .bottom-navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* evenly split buttons */
     background-color: #FCFBF9;
     padding: 8px 0;
     margin: 0 10px;
@@ -31,7 +41,8 @@
 }
 
 .right-section {
-    text-align: right;
+    display: flex; /* Change to flex to align items */
+    justify-content: flex-end; /* Align content to the right */
 }
 
 .sign-in-button .nav-button {
@@ -43,3 +54,17 @@
     background-color: #FCFBF9; /* Change background color to #FCFBF9 on hover */
 }
 
+@media screen and (max-width: 768px) {
+    /* Adjust styles for smaller screens */
+    .top-navbar {
+        padding: 8px;
+    }
+
+    .logo img {
+        height: 30px;
+    }
+
+    .website-name {
+        font-size: 16px;
+    }
+}
