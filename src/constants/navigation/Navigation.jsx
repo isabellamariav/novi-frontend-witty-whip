@@ -1,5 +1,6 @@
 // Navigation.jsx
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import NavButton from '../navButton/NavButton';
 import logo from '../../assets/logo.jpg';
 import homeIcon from '../../assets/navIcons/homeIcon.png';
@@ -15,11 +16,15 @@ const Navigation = () => {
             <div className="top-navbar">
                 <div className="left-section">
                     <div className="logo">
-                        <img src={logo} alt="Logo" />
+                        <Link to="/home"> {/* Link to home page */}
+                            <img src={logo} alt="Logo" />
+                        </Link>
                     </div>
                 </div>
                 <div className="center-section">
-                    <div className="website-name">Witty Whip</div>
+                    <div className="website-name">
+                        <Link to="/home">Witty Whip</Link> {/* Link to home page */}
+                    </div>
                 </div>
                 <div className="right-section">
                     <div className="sign-in-button">
@@ -47,6 +52,12 @@ const NavItem = ({ to, text, icon }) => {
             <NavButton text={text} icon={icon} />
         </Link>
     );
+};
+
+NavItem.propTypes = {
+    to: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    icon: PropTypes.string, // assuming icon is a string path
 };
 
 export default Navigation;

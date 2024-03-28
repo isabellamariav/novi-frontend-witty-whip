@@ -22,6 +22,7 @@
     background-color: #FCFBF9;
     padding: 8px 0;
     margin: 0 10px;
+    border-bottom: 2px solid #F4EFEA; /* Add a 2px horizontal line under the bottom-navbar */
 }
 
 .logo img {
@@ -32,6 +33,17 @@
     font-size: 20px;
     font-weight: bold;
     text-align: center;
+    color: #333333; /* Set the color to the original color */
+}
+
+.website-name a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent (.website-name) */
+    font-weight: bold; /* Make the text a bit bolder */
+}
+
+.website-name a:hover {
+    color: #333333; /* Keep the same color on hover */
 }
 
 .left-section,

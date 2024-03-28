@@ -8,10 +8,12 @@ import QuestionnairePage from './pages/questionnairePage/Questionnaire';
 import SignInPage from './pages/signInPage/SignIn';
 import SignUpPage from './pages/signUpPage/SignUp';
 import NotFoundPage from './pages/notFoundPage/NotFound.jsx';
+import Background from "./constants/background/Background.jsx";
 
 function App() {
     return (
         <Router>
+            <Background />
             <Navigation />
             <Routes>
                 <Route path="/home" element={<HomePage />} />
