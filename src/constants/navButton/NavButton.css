@@ -1,5 +1,5 @@
 .nav-button {
-    background-color: #ffffff;
+    background-color: #FCFBF9; /* Setting button background color to FCFBF9 */
     border: none;
     color: #333333;
     padding: 8px 16px;
@@ -9,5 +9,5 @@
 }
 
 .nav-button:hover {
-    background-color: #f0f0f0;
+    background-color: #F4EFEA; /* Changing button background color on hover to F4EFEA */
 }

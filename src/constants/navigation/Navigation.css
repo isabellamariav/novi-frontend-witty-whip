@@ -2,29 +2,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f0f0f0;
+    background-color: white;
     padding: 12px;
 }
 
 .bottom-navbar {
     display: flex;
     justify-content: center;
-    background-color: #007bff;
+    background-color: #FCFBF9;
     padding: 8px 0;
+    margin: 0 10px;
 }
 
-.logo {
-    font-weight: bold;
+.logo img {
+    height: 40px;
 }
 
 .website-name {
     font-size: 20px;
     font-weight: bold;
-    margin-right: auto;
+    text-align: center;
 }
 
-.sign-in-button {
-    margin-left: auto;
+.left-section,
+.right-section,
+.center-section {
+    flex: 1;
 }
 
-/* Stijl voor NavButton blijft hetzelfde als in NavButton.css */
+.right-section {
+    text-align: right;
+}
+
+.sign-in-button .nav-button {
+    background-color: white; /* Set default background color to white */
+    color: black; /* Set default text color to black */
+}
+
+.sign-in-button:hover .nav-button {
+    background-color: #FCFBF9; /* Change background color to #FCFBF9 on hover */
+}
+
