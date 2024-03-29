@@ -1,4 +1,4 @@
-import SignInUp from '../../constants/signInUpCard/SignInUpCard.jsx';
+import SignInUp from '../../components/signInUpCard/SignInUpCard.jsx';
 import './SignUp.css';
 
 function SignUp() {

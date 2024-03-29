@@ -1,4 +1,4 @@
-import HomeButton from "../../constants/homeButton/HomeButton.jsx";
+import HomeButton from "../../components/homeButton/HomeButton.jsx";
 import { Link } from 'react-router-dom';
 import './Home.css';
 
