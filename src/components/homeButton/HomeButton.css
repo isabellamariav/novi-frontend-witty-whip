@@ -1,0 +1,21 @@
+.home-button {
+    background-color: #FFFFFF;
+    border: 2px solid #F4EFEA;
+    color: #333333;
+    padding: 8px 16px;
+    margin: 4px 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    width: 230px;
+    height: 80px;
+    background-size: cover;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.home-button:hover {
+    background-image: url('../../assets/woodButton.jpg');
+    border: 2px solid #F4EFEA;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
