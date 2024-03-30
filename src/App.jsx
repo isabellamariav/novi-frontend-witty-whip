@@ -9,6 +9,7 @@ import SignInPage from './pages/signInPage/SignIn';
 import SignUpPage from './pages/signUpPage/SignUp';
 import NotFoundPage from './pages/notFoundPage/NotFound.jsx';
 import Background from "./components/background/Background.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>
+            <Footer />
         </Router>
     );
 }
