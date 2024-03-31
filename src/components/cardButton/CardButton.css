@@ -1,18 +1,21 @@
-.card-button {
-    background-color: #F4EFEA;
+.active.btn {
+    background-color: #f4efea;
     border: none;
-    color: #333333;
-    padding: 8px 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Added color transition */
-    display: flex;
-    align-items: center;
-    width: 90px;
-    height: 40px;
+    color: #333333;
+    transition: background-color 0.3s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-left: 25px;
+    margin-right: 25px;
 }
 
-.card-button:hover {
-    background-color: #FCFBF9;
+.active.btn:hover {
+    background-color: #fcfbf9;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+    background-color: #fcfbf9;
 }

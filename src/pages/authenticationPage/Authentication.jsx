@@ -1,5 +1,5 @@
-import './Authentication.css'
-import React, { useState, useEffect } from 'react';
+import './Authentication.css';
+import { useState, useEffect } from 'react'; // Removed unused React import
 import Loader from '../../components/loader/Loader.jsx';
 import { auth } from '../../firebase/config.js';
 import {
@@ -8,7 +8,8 @@ import {
     sendPasswordResetEmail,
     onAuthStateChanged
 } from "firebase/auth";
-
+import Input from '../../components/input/Input.jsx';
+import CardButton from '../../components/cardButton/CardButton.jsx';
 
 function Authentication() {
 
@@ -60,8 +61,15 @@ function Authentication() {
 
     function handlePasswordReset() {
         const email = prompt('Please enter your email');
-        sendPasswordResetEmail(auth, email);
-        alert('Email sent! Check your inbox for password reset instructions.');
+        if (email) { // Check if email is not null (user clicked cancel)
+            sendPasswordResetEmail(auth, email)
+                .then(() => {
+                    alert('Email sent! Check your inbox for password reset instructions.');
+                })
+                .catch((error) => {
+                    setError(error.message);
+                });
+        }
     }
 
     return (
@@ -69,42 +77,36 @@ function Authentication() {
             {isLoading && <Loader></Loader>}
 
             <div className="container signin-page">
-                <section className="card">
+                <section className="signin-card">
                     <h2>Welcome to Witty Whip!</h2>
                     <p>Sign in or create an account to continue</p>
                     <div className="authentication-type">
-                        <button
-                            className={`btn ${authenticationType === 'signin' ? 'selected' : ''}`}
-                            onClick={() => setAuthenticationType('signin')}>
+                        <CardButton onClick={() => setAuthenticationType('signin')} isActive={authenticationType === 'signin'}>
                             Sign in
-                        </button>
-                        <button
-                            className={`btn ${authenticationType === 'signup' ? 'selected' : ''}`}
-                            onClick={() => setAuthenticationType('signup')}>
+                        </CardButton>
+                        <CardButton onClick={() => setAuthenticationType('signup')} isActive={authenticationType === 'signup'}>
                             Sign up
-                        </button>
+                        </CardButton>
                     </div>
                     <form className="add-form signin">
-                        <div className="form-control">
-                            <label>Email</label>
-                            <input onChange={(e) => {
-                                handleCredentials(e)
-                            }} type="text" name="email" placeholder="Enter your email"/>
-                        </div>
-                        <div className="form-control">
-                            <label>Password</label>
-                            <input onChange={(e) => {
-                                handleCredentials(e)
-                            }} type="password" name="password" placeholder="Enter your password"/>
-                        </div>
+                        <Input
+                            label="Email"
+                            type="text"
+                            name="email"
+                            placeholder="Enter your email"
+                            onChange={handleCredentials}
+                        />
+                        <Input
+                            label="Password"
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            onChange={handleCredentials}
+                        />
                         {authenticationType === 'signin' ?
-                            <button onClick={(e) => {
-                                handleSignin(e)
-                            }} className="active btn btn-block">Sign in</button>
+                            <CardButton onClick={handleSignin} isActive={true}>Sign in</CardButton>
                             :
-                            <button onClick={(e) => {
-                                handleSignup(e)
-                            }} className="active btn btn-block">Sign Up</button>
+                            <CardButton onClick={handleSignup} isActive={true}>Sign Up</CardButton>
                         }
 
                         {error &&
@@ -123,9 +125,3 @@ function Authentication() {
 }
 
 export default Authentication;
-
-
-
-
-
-

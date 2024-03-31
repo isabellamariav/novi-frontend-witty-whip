@@ -1,36 +1,21 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import './Input.css';
 
-const Input = ({ label, placeholder, errorMessage }) => {
-    const [focused, setFocused] = useState(false);
-
-    const handleFocus = () => {
-        setFocused(true);
-    };
-
-    const handleBlur = () => {
-        setFocused(false);
-    };
-
+function Input({ label, type, name, placeholder, onChange }) {
     return (
-        <div className={`text-input ${focused ? 'focused' : ''}`}>
-            <label className="label">{label}</label>
-            <input
-                type="text"
-                placeholder={placeholder}
-                onFocus={handleFocus}
-                onBlur={handleBlur}
-            />
-            {errorMessage && <div className="error-message">{errorMessage}</div>}
+        <div className="form-control">
+            <label className="input-label">{label}</label>
+            <input className="input-field" onChange={onChange} type={type} name={name} placeholder={placeholder} />
         </div>
     );
-};
+}
 
 Input.propTypes = {
     label: PropTypes.string.isRequired,
-    placeholder: PropTypes.string,
-    errorMessage: PropTypes.string,
+    type: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default Input;

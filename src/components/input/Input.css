@@ -1,38 +1,17 @@
-.text-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+.form-control {
+    margin-bottom: 20px;
 }
 
-.label {
-    color: #5b5b5b;
+.input-label {
+    display: block;
+    font-weight: bold;
     margin-bottom: 5px;
-}
-
-.input {
-    border: 1px solid #5b5b5b;
-    border-radius: 5px;
-    padding: 10px;
-    transition: border-color 0.3s ease;
-    width: 100%;
-}
-
-.input:focus {
-    border-color: #333333;
-}
-
-.error-message {
-    color: #B70000;
-    font-size: 12px;
-    margin-top: 5px;
     text-align: center;
 }
 
-.focused .label {
-    color: #333333;
-}
-
-.focused .input {
-    border-color: #333333;
+.input-field {
+    padding: 10px;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #CCB49B;
 }
