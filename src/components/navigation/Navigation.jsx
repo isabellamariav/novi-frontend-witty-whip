@@ -5,6 +5,7 @@ import logo from '../../assets/logo.jpg';
 import homeIcon from '../../assets/navIcons/homeIcon.png';
 import recipesIcon from '../../assets/navIcons/recipesIcon.png';
 import questionnaireIcon from '../../assets/navIcons/questionnaireIcon.png';
+import ingredientsIcon from '../../assets/navIcons/ingredientsIcon.png';
 import profileIcon from '../../assets/navIcons/profileIcon.png';
 import aboutIcon from '../../assets/navIcons/abouIcon.png';
 import './Navigation.css';
@@ -28,7 +29,7 @@ const Navigation = () => {
                 <div className="right-section">
                     <div className="sign-in-button">
                         <Link to="/authentication">
-                            <NavButton text="Sign In" />
+                            <NavItem text="Sign In" />
                         </Link>
                     </div>
                 </div>
@@ -38,6 +39,7 @@ const Navigation = () => {
                 <NavItem to="/home" text="Home" icon={homeIcon} />
                 <NavItem to="/all-recipes" text="Recipes" icon={recipesIcon} />
                 <NavItem to="/questionnaire" text="Questionnaire" icon={questionnaireIcon} />
+                <NavItem to="/recipe-by-ingredients" text="Search by Ingredients" icon={ingredientsIcon} />
                 <NavItem to="/profile" text="Profile" icon={profileIcon} />
                 <NavItem to="/about" text="About" icon={aboutIcon} />
             </div>
