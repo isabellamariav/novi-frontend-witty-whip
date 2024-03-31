@@ -1,4 +1,3 @@
-// AllRecipes.jsx
 import { useState, useEffect } from 'react';
 import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
 import Input from '../../components/input/Input.jsx';

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Input from '../../components/input/Input.jsx';
 import CardButton from '../../components/cardButton/CardButton.jsx';
-import RecipeCard from '../../components/recipeCard/RecipeCard.jsx'; // assuming you have a RecipeCard component
+import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
 import { searchRecipes } from '../../services/api.js';
 import './RecipeByIngredients.css';
 

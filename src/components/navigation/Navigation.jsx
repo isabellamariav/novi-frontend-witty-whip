@@ -29,7 +29,7 @@ const Navigation = () => {
                 <div className="right-section">
                     <div className="sign-in-button">
                         <Link to="/authentication">
-                            <NavItem text="Sign In" />
+                            <NavButton text="Sign In" />
                         </Link>
                     </div>
                 </div>
