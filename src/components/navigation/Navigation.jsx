@@ -27,7 +27,7 @@ const Navigation = () => {
                 </div>
                 <div className="right-section">
                     <div className="sign-in-button">
-                        <Link to="/signin">
+                        <Link to="/authentication">
                             <NavButton text="Sign In" />
                         </Link>
                     </div>
