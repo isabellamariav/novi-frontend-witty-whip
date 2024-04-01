@@ -3,7 +3,8 @@ import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
 import Input from '../../components/input/Input.jsx';
 import CardButton from '../../components/cardButton/CardButton.jsx';
 import { getRandomRecipes, searchRecipes } from '../../services/api.js';
-import './AllRecipes.css'
+import SideCard from '../../components/sideCard/SideCard.jsx';
+import './AllRecipes.css';
 
 const AllRecipes = () => {
     const [recipes, setRecipes] = useState([]);
@@ -55,27 +56,32 @@ const AllRecipes = () => {
 
     return (
         <div className="all-recipes">
-            <div className="search-bar">
-                <Input
-                    label="Search recipe"
-                    type="text"
-                    name="search"
-                    placeholder="Enter recipe name"
-                    onChange={handleSearchInputChange}
-                />
-                <CardButton onClick={handleSearchSubmit} isActive={true}>
-                    Search
-                </CardButton>
+            <SideCard>
+                <div className="search-bar">
+                    <h2>All recipes</h2>
+                    <Input
+                        label="Search recipe"
+                        type="text"
+                        name="search"
+                        placeholder="Enter recipe name"
+                        onChange={handleSearchInputChange}
+                    />
+                    <CardButton onClick={handleSearchSubmit} isActive={true}>
+                        Search
+                    </CardButton>
+                </div>
+            </SideCard>
+            <div className="recipe-list">
+                {error && <p className="error-message">{error}</p>}
+                {recipes.map(recipe => (
+                    <RecipeCard key={recipe.id} recipe={recipe} />
+                ))}
+                {recipes.length > 0 && searchedRecipesCount < 100 && (
+                    <CardButton onClick={handleLoadMore} isActive={true}>
+                        Load More
+                    </CardButton>
+                )}
             </div>
-            {error && <p className="error-message">{error}</p>}
-            {recipes.map(recipe => (
-                <RecipeCard key={recipe.id} recipe={recipe} />
-            ))}
-            {recipes.length > 0 && searchedRecipesCount < 100 && (
-                <CardButton onClick={handleLoadMore} isActive={true}>
-                    Load More
-                </CardButton>
-            )}
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import './Authentication.css';
-import { useState, useEffect } from 'react'; // Removed unused React import
+import { useState, useEffect } from 'react';
 import Loader from '../../components/loader/Loader.jsx';
 import { auth } from '../../firebase/config.js';
 import {

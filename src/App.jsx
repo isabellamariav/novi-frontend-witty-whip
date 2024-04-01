@@ -3,7 +3,6 @@ import Navigation from '../src/components/navigation/Navigation.jsx';
 import AboutPage from './pages/aboutPage/About';
 import AllRecipesPage from './pages/allRecipesPage/AllRecipes.jsx';
 import HomePage from './pages/homePage/Home';
-import ProfilePage from './pages/profilePage/Profile';
 import QuestionnairePage from './pages/questionnairePage/Questionnaire';
 import NotFoundPage from './pages/notFoundPage/NotFound.jsx';
 import Background from "./components/background/Background.jsx";
@@ -21,7 +20,6 @@ function App() {
                 <Route path="/home" element={<HomePage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/all-recipes" element={<AllRecipesPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
                 <Route path="/questionnaire" element={<QuestionnairePage />} />
                 <Route path="/authentication" element={<AuthenticationPage />} />
                 <Route path="/recipe/:recipeId" element={<RecipeDetails />} />

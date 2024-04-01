@@ -28,9 +28,7 @@ const Navigation = () => {
                 </div>
                 <div className="right-section">
                     <div className="sign-in-button">
-                        <Link to="/authentication">
-                            <NavButton text="Sign In" />
-                        </Link>
+                        <NavItem to="/authentication" text="Sign in" icon={profileIcon} />
                     </div>
                 </div>
             </div>
@@ -40,7 +38,6 @@ const Navigation = () => {
                 <NavItem to="/all-recipes" text="Recipes" icon={recipesIcon} />
                 <NavItem to="/questionnaire" text="Questionnaire" icon={questionnaireIcon} />
                 <NavItem to="/recipe-by-ingredients" text="Search by Ingredients" icon={ingredientsIcon} />
-                <NavItem to="/profile" text="Profile" icon={profileIcon} />
                 <NavItem to="/about" text="About" icon={aboutIcon} />
             </div>
         </div>
