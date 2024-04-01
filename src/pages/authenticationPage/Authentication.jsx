@@ -1,5 +1,6 @@
 import './Authentication.css';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Loader from '../../components/loader/Loader.jsx';
 import { auth } from '../../firebase/config.js';
 import {
@@ -11,7 +12,7 @@ import {
 import Input from '../../components/input/Input.jsx';
 import CardButton from '../../components/cardButton/CardButton.jsx';
 
-function Authentication() {
+function Authentication({ setIsLoggedIn }) {
 
     const [isLoading, setIsLoading] = useState(true);
     const [authenticationType, setAuthenticationType] = useState('signin');
@@ -40,6 +41,7 @@ function Authentication() {
         createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
             .then((userCredential) => {
                 console.log(userCredential.user);
+                setIsLoggedIn(true);
             })
             .catch((error) => {
                 setError(error.message);
@@ -53,6 +55,7 @@ function Authentication() {
         signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
             .then((userCredential) => {
                 console.log(userCredential.user);
+                setIsLoggedIn(true);
             })
             .catch((error) => {
                 setError(error.message);
@@ -61,7 +64,7 @@ function Authentication() {
 
     function handlePasswordReset() {
         const email = prompt('Please enter your email');
-        if (email) { // Check if email is not null (user clicked cancel)
+        if (email) {
             sendPasswordResetEmail(auth, email)
                 .then(() => {
                     alert('Email sent! Check your inbox for password reset instructions.');
@@ -123,5 +126,9 @@ function Authentication() {
         </>
     )
 }
+
+Authentication.propTypes = {
+    setIsLoggedIn: PropTypes.func.isRequired
+};
 
 export default Authentication;

@@ -1,10 +1,10 @@
-import { useState } from 'react'; // Remove useEffect import
+import { useState } from 'react';
 import Input from '../../components/input/Input.jsx';
 import CardButton from '../../components/cardButton/CardButton.jsx';
 import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
-import { searchRecipes } from '../../services/api.js';
+import { searchRecipesByIngredients } from '../../services/api.js';
 import SideCard from "../../components/sideCard/SideCard.jsx";
-import Loader from '../../components/loader/Loader.jsx'; // Import the Loader component
+import Loader from '../../components/loader/Loader.jsx';
 import './RecipeByIngredients.css';
 
 const RecipeByIngredients = () => {
@@ -13,12 +13,12 @@ const RecipeByIngredients = () => {
     const [error, setError] = useState('');
     const [numRecipesToShow, setNumRecipesToShow] = useState(12);
     const [searchedRecipesCount, setSearchedRecipesCount] = useState(0);
-    const [loading, setLoading] = useState(false); // State to track loading status
+    const [loading, setLoading] = useState(false);
 
     const fetchData = async () => {
-        setLoading(true); // Set loading state to true
+        setLoading(true);
         try {
-            const data = await searchRecipes(searchTerm, numRecipesToShow);
+            const data = await searchRecipesByIngredients(searchTerm, numRecipesToShow);
             setRecipes(data);
             setError('');
             setSearchedRecipesCount(numRecipesToShow);
@@ -26,7 +26,19 @@ const RecipeByIngredients = () => {
             setRecipes([]);
             setError('No recipes found. Please try a different search term.');
         }
-        setLoading(false); // Set loading state to false after fetching data
+        setLoading(false);
+    };
+
+    const fetchMoreRecipes = async () => {
+        setLoading(true);
+        try {
+            const additionalRecipes = await searchRecipesByIngredients(searchTerm, 12);
+            setRecipes(prevRecipes => [...prevRecipes, ...additionalRecipes]);
+            setSearchedRecipesCount(prevCount => prevCount + 12);
+        } catch (error) {
+            setError('Error fetching more recipes.');
+        }
+        setLoading(false);
     };
 
     const handleSearchInputChange = (event) => {
@@ -36,12 +48,15 @@ const RecipeByIngredients = () => {
     const handleSearchSubmit = (event) => {
         event.preventDefault();
         if (searchTerm.trim() !== '') {
+            setNumRecipesToShow(12);
             fetchData();
         }
     };
 
     const handleLoadMore = () => {
-        setNumRecipesToShow(prev => Math.min(prev + 12, 100));
+        if (searchedRecipesCount < 100) {
+            fetchMoreRecipes();
+        }
     };
 
     return (
@@ -62,7 +77,7 @@ const RecipeByIngredients = () => {
                 </form>
             </SideCard>
             <section className="recipe-list">
-                {loading && <Loader />} {/* Render Loader component while loading */}
+                {loading && <Loader />}
                 {error && <p className="error-message">{error}</p>}
                 {recipes.map(recipe => (
                     <RecipeCard key={recipe.id} recipe={recipe} />

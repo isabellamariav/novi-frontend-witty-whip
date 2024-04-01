@@ -16,7 +16,7 @@ const Home = () => {
                     <HomeButton text="Find recipes through Questionnaire" />
                 </Link>
                 <Link to="/recipe-by-ingredients">
-                    <HomeButton text="Check out your favorite recipes" />
+                    <HomeButton text="Find recipes based on ingredients from your fridge" />
                 </Link>
             </nav>
         </main>

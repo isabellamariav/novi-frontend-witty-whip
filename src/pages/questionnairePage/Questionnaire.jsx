@@ -3,7 +3,7 @@ import CardButton from '../../components/cardButton/CardButton.jsx';
 import { searchRecipes } from '../../services/api.js';
 import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
 import SideCard from "../../components/sideCard/SideCard.jsx";
-import Loader from '../../components/loader/Loader.jsx'; // Import Loader component
+import Loader from '../../components/loader/Loader.jsx';
 import './Questionnaire.css';
 
 const Questionnaire = () => {
@@ -39,23 +39,36 @@ const Questionnaire = () => {
     };
 
     const getRecipes = async () => {
-        setLoading(true); // Set loading to true when fetching starts
+        setLoading(true);
         try {
             const query = `${mealType}&diet=${dietaryRestrictions.join(',')}&intolerances=${intolerances.join(',')}`;
-            const data = await searchRecipes(query, numRecipesToShow);
+            const data = await searchRecipes(query, 12);
             setRecipes(data);
             setError('');
-            setSearchedRecipesCount(numRecipesToShow);
+            setSearchedRecipesCount(12);
+            setNumRecipesToShow(12);
         } catch (error) {
             setRecipes([]);
             setError('No recipes found. Please try a different combination.');
         }
-        setLoading(false); // Set loading to false when fetching completes
+        setLoading(false);
     };
 
-    const handleLoadMore = () => {
-        setNumRecipesToShow(prev => prev + 12);
-        setSearchedRecipesCount(prev => prev + 12);
+
+    const handleLoadMore = async () => {
+        const newNumRecipesToShow = numRecipesToShow + 12;
+        setLoading(true);
+        try {
+            const query = `${mealType}&diet=${dietaryRestrictions.join(',')}&intolerances=${intolerances.join(',')}`;
+            const additionalRecipes = await searchRecipes(query, 12);
+            setRecipes(prevRecipes => [...prevRecipes, ...additionalRecipes]);
+            setNumRecipesToShow(newNumRecipesToShow);
+            setError('');
+            setSearchedRecipesCount(newNumRecipesToShow);
+        } catch (error) {
+            setError('Error fetching additional recipes. Please try again.');
+        }
+        setLoading(false);
     };
 
     return (
@@ -160,7 +173,7 @@ const Questionnaire = () => {
                     <CardButton onClick={getRecipes} isActive={true}>
                         Get Recipes
                     </CardButton>
-                    {loading && <Loader />} {/* Render Loader while loading */}
+                    {loading && <Loader />}
                     <p></p>
                 </section>
             </SideCard>

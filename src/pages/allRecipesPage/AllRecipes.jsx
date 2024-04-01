@@ -11,7 +11,6 @@ const AllRecipes = () => {
     const [recipes, setRecipes] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [error, setError] = useState('');
-    const [numRecipesToShow, setNumRecipesToShow] = useState(12);
     const [searchedRecipesCount, setSearchedRecipesCount] = useState(0);
     const [loading, setLoading] = useState(false);
     const [initialLoad, setInitialLoad] = useState(true);
@@ -20,7 +19,7 @@ const AllRecipes = () => {
         const fetchRandomRecipes = async () => {
             setLoading(true);
             try {
-                const data = await getRandomRecipes(numRecipesToShow);
+                const data = await getRandomRecipes(12);
                 setRecipes(data);
                 setError('');
             } catch (error) {
@@ -35,19 +34,19 @@ const AllRecipes = () => {
             fetchRandomRecipes();
             setInitialLoad(false);
         }
-    }, [initialLoad, numRecipesToShow]);
+    }, [initialLoad]);
 
     const handleSearchInputChange = (event) => {
         setSearchTerm(event.target.value);
     };
 
     const handleSearchSubmit = async (event) => {
-        event.preventDefault(); // Prevent form submission
+        event.preventDefault();
         setLoading(true);
         try {
-            const data = await searchRecipes(searchTerm, numRecipesToShow);
+            const data = await searchRecipes(searchTerm, 12);
             setRecipes(data);
-            setSearchedRecipesCount(numRecipesToShow);
+            setSearchedRecipesCount(12);
             setError('');
         } catch (error) {
             setRecipes([]);
@@ -57,9 +56,18 @@ const AllRecipes = () => {
         }
     };
 
-    const handleLoadMore = () => {
-        setNumRecipesToShow(prev => prev + 12);
-        setSearchedRecipesCount(prev => prev + 12);
+    const handleLoadMore = async () => {
+        setLoading(true);
+        try {
+            const additionalRecipes = await getRandomRecipes(12);
+            setRecipes(prevRecipes => [...prevRecipes, ...additionalRecipes]);
+            setSearchedRecipesCount(prev => prev + 12);
+            setError('');
+        } catch (error) {
+            setError('Failed to fetch additional recipes. Please try again later.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (

@@ -25,7 +25,6 @@ const RecipeDetails = () => {
     }, [recipeId]);
 
     if (loading) {
-        // Display Loader component while loading
         return <Loader />;
     }
 
