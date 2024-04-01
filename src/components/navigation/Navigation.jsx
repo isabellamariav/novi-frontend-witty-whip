@@ -12,35 +12,35 @@ import './Navigation.css';
 
 const Navigation = () => {
     return (
-        <div className="navbar">
+        <header className="navbar">
             <div className="top-navbar">
                 <div className="left-section">
-                    <div className="logo">
+                    <nav className="logo">
                         <Link to="/home">
                             <img src={logo} alt="Logo" />
                         </Link>
-                    </div>
+                    </nav>
                 </div>
                 <div className="center-section">
-                    <div className="website-name">
+                    <nav className="website-name">
                         <Link to="/home">Witty Whip</Link>
-                    </div>
+                    </nav>
                 </div>
                 <div className="right-section">
-                    <div className="sign-in-button">
+                    <nav className="sign-in-button">
                         <NavItem to="/authentication" text="Sign in" icon={profileIcon} />
-                    </div>
+                    </nav>
                 </div>
             </div>
 
-            <div className="bottom-navbar">
+            <nav className="bottom-navbar">
                 <NavItem to="/home" text="Home" icon={homeIcon} />
                 <NavItem to="/all-recipes" text="Recipes" icon={recipesIcon} />
                 <NavItem to="/questionnaire" text="Questionnaire" icon={questionnaireIcon} />
                 <NavItem to="/recipe-by-ingredients" text="Search by Ingredients" icon={ingredientsIcon} />
                 <NavItem to="/about" text="About" icon={aboutIcon} />
-            </div>
-        </div>
+            </nav>
+        </header>
     );
 };
 

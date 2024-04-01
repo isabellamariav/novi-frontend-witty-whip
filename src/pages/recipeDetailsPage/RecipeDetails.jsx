@@ -26,9 +26,9 @@ const RecipeDetails = () => {
     }
 
     return (
-        <div className="recipe-details">
+        <main className="recipe-details">
             <SideCard>
-                <div className="recipe-information">
+                <section className="recipe-information">
                     <h2>{recipe.title}</h2>
                     <h3>Ready in</h3>
                     <p>{recipe.readyInMinutes} minutes</p>
@@ -66,9 +66,9 @@ const RecipeDetails = () => {
                             </ul>
                         </div>
                     )}
-                </div>
+                </section>
             </SideCard>
-            <div className="recipe-instructions">
+            <article className="recipe-instructions">
                 <img src={recipe.image} alt={recipe.title}/>
                 <h3>Ingredients:</h3>
                 <ul>
@@ -78,8 +78,8 @@ const RecipeDetails = () => {
                 </ul>
                 <h3>Instructions:</h3>
                 <p>{recipe.instructions}</p>
-            </div>
-        </div>
+            </article>
+        </main>
     );
 };
 

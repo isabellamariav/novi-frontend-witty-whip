@@ -76,18 +76,18 @@ function Authentication() {
         <>
             {isLoading && <Loader></Loader>}
 
-            <div className="container signin-page">
+            <main className="container signin-page">
                 <section className="signin-card">
                     <h2>Welcome to Witty Whip!</h2>
                     <p>Sign in or create an account to continue</p>
-                    <div className="authentication-type">
+                    <nav className="authentication-type">
                         <CardButton onClick={() => setAuthenticationType('signin')} isActive={authenticationType === 'signin'}>
                             Sign in
                         </CardButton>
                         <CardButton onClick={() => setAuthenticationType('signup')} isActive={authenticationType === 'signup'}>
                             Sign up
                         </CardButton>
-                    </div>
+                    </nav>
                     <form className="add-form signin">
                         <Input
                             label="Email"
@@ -119,7 +119,7 @@ function Authentication() {
 
                     </form>
                 </section>
-            </div>
+            </main>
         </>
     )
 }

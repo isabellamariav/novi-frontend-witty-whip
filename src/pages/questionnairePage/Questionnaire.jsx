@@ -55,9 +55,9 @@ const Questionnaire = () => {
     };
 
     return (
-        <div className="questionnaire">
+        <main className="questionnaire">
             <SideCard>
-                <div className="questions">
+                <form className="questions">
                     <div className="question">
                         <h2>Questionnaire</h2>
                         <h3>What meal type are you looking for?</h3>
@@ -157,9 +157,9 @@ const Questionnaire = () => {
                         Get Recipes
                     </CardButton>
                     <p></p>
-                </div>
+                </form>
             </SideCard>
-            <div className="recipe-list">
+            <section className="recipe-list">
 
                 {error && <p className="error-message">{error}</p>}
                 {recipes.map(recipe => (
@@ -170,8 +170,8 @@ const Questionnaire = () => {
                         Load More
                     </CardButton>
                 )}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

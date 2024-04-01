@@ -4,11 +4,11 @@ import './Home.css';
 
 const Home = () => {
     return (
-        <div className="container">
+        <main className="container">
             <h1>Welcome!</h1>
             <h2>Find the perfect recipe with Witty Whip</h2>
             <h3>A smart and easy way to find your recipes</h3>
-            <div className="button-container">
+            <nav className="button-container">
                 <Link to="/all-recipes">
                     <HomeButton text="Browse and Search Recipes" />
                 </Link>
@@ -18,8 +18,8 @@ const Home = () => {
                 <Link to="/recipe-by-ingredients">
                     <HomeButton text="Check out your favorite recipes" />
                 </Link>
-            </div>
-        </div>
+            </nav>
+        </main>
     );
 };
 

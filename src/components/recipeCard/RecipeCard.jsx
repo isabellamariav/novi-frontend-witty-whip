@@ -4,12 +4,12 @@ import './RecipeCard.css';
 
 const RecipeCard = ({ recipe }) => {
     return (
-        <div className="recipe-card">
+        <article className="recipe-card">
             <Link to={`/recipe/${recipe.id}`}>
                 <img src={recipe.image} alt={recipe.title} />
                 <h4>{recipe.title}</h4>
             </Link>
-        </div>
+        </article>
     );
 };
 

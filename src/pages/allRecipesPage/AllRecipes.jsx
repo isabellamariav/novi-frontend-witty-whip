@@ -55,9 +55,9 @@ const AllRecipes = () => {
     };
 
     return (
-        <div className="all-recipes">
+        <main className="all-recipes">
             <SideCard>
-                <div className="search-bar">
+                <form className="search-bar">
                     <h2>All recipes</h2>
                     <Input
                         label="Search recipe"
@@ -69,9 +69,9 @@ const AllRecipes = () => {
                     <CardButton onClick={handleSearchSubmit} isActive={true}>
                         Search
                     </CardButton>
-                </div>
+                </form>
             </SideCard>
-            <div className="recipe-list">
+            <section className="recipe-list">
                 {error && <p className="error-message">{error}</p>}
                 {recipes.map(recipe => (
                     <RecipeCard key={recipe.id} recipe={recipe} />
@@ -81,8 +81,8 @@ const AllRecipes = () => {
                         Load More
                     </CardButton>
                 )}
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };
 

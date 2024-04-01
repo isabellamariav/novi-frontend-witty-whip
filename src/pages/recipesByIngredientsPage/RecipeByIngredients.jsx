@@ -44,9 +44,9 @@ const RecipeByIngredients = () => {
     };
 
     return (
-        <div className="recipe-by-ingredients">
+        <main className="recipe-by-ingredients">
             <SideCard>
-                <div className="search-bar">
+                <form className="search-bar">
                     <h2>Search recipes by ingredients</h2>
                     <Input
                         label="Enter ingredients separated by commas"
@@ -58,9 +58,9 @@ const RecipeByIngredients = () => {
                     <CardButton onClick={handleSearchSubmit} isActive={true}>
                         Search
                     </CardButton>
-                </div>
+                </form>
             </SideCard>
-            <div className="recipe-list">
+            <section className="recipe-list">
                 {error && <p className="error-message">{error}</p>}
                 {recipes.map(recipe => (
                     <RecipeCard key={recipe.id} recipe={recipe}/>
@@ -70,9 +70,8 @@ const RecipeByIngredients = () => {
                         Load More
                     </CardButton>
                 )}
-            </div>
-
-        </div>
+            </section>
+        </main>
     );
 };
 

@@ -3,10 +3,10 @@ import './SideCard.css';
 
 const SideCard = ({ children }) => {
     return (
-        <div className="side-card">
+        <aside className="side-card">
             <div className="navbar-margin"></div>
             {children}
-        </div>
+        </aside>
     );
 };
 
