@@ -11,11 +11,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center; /* This will center-align the text within the container */
+    text-align: center;
 }
 
 .recipe-instructions img {
-    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    max-width: 100%;
 }
 
 .recipe-instructions h3 {
@@ -31,7 +31,7 @@
 }
 
 .recipe-instructions ul {
-    list-style-type: none; /* This will remove the bullet points */
+    list-style-type: none;
 }
 
 .recipe-information {
@@ -52,5 +52,5 @@
 }
 
 .recipe-information ul {
-    list-style-type: none; /* This will remove the bullet points */
+    list-style-type: none;
 }

@@ -156,6 +156,7 @@ const Questionnaire = () => {
                     <CardButton onClick={getRecipes} isActive={true}>
                         Get Recipes
                     </CardButton>
+                    <p></p>
                 </div>
             </SideCard>
             <div className="recipe-list">

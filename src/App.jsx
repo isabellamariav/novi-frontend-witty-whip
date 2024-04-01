@@ -23,7 +23,7 @@ function App() {
                 <Route path="/questionnaire" element={<QuestionnairePage />} />
                 <Route path="/authentication" element={<AuthenticationPage />} />
                 <Route path="/recipe/:recipeId" element={<RecipeDetails />} />
-                <Route path="/recipe-by-ingredients" element={<RecipeByIngredients />} /> {/* Add this line for RecipeByIngredients */}
+                <Route path="/recipe-by-ingredients" element={<RecipeByIngredients />} />
                 <Route path="/" element={<HomePage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Routes>

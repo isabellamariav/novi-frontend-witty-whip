@@ -40,7 +40,7 @@ const RecipeByIngredients = () => {
     };
 
     const handleLoadMore = () => {
-        setNumRecipesToShow(prev => Math.min(prev + 12, 100)); // Limit to a maximum of 100 recipes
+        setNumRecipesToShow(prev => Math.min(prev + 12, 100));
     };
 
     return (
@@ -49,10 +49,10 @@ const RecipeByIngredients = () => {
                 <div className="search-bar">
                     <h2>Search recipes by ingredients</h2>
                     <Input
-                        label="Ingredients"
+                        label="Enter ingredients separated by commas"
                         type="text"
                         name="ingredients"
-                        placeholder="Enter ingredients separated by commas"
+                        placeholder="Enter ingredients"
                         onChange={handleSearchInputChange}
                     />
                     <CardButton onClick={handleSearchSubmit} isActive={true}>

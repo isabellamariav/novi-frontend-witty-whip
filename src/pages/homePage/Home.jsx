@@ -10,12 +10,12 @@ const Home = () => {
             <h3>A smart and easy way to find your recipes</h3>
             <div className="button-container">
                 <Link to="/all-recipes">
-                    <HomeButton text="Browse, Search and Filter Recipes" />
+                    <HomeButton text="Browse and Search Recipes" />
                 </Link>
                 <Link to="/questionnaire">
                     <HomeButton text="Find recipes through Questionnaire" />
                 </Link>
-                <Link to="/profile">
+                <Link to="/recipe-by-ingredients">
                     <HomeButton text="Check out your favorite recipes" />
                 </Link>
             </div>

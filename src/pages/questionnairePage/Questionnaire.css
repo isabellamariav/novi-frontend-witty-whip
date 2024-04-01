@@ -19,9 +19,8 @@
 .question h3 {
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 0;
 }
-
-
 
 .recipe-list {
     margin-top: 130px;
@@ -39,6 +38,7 @@
 .checkbox-options {
     display: flex;
     flex-direction: column;
+    margin-bottom: 12px;
 }
 
 .radio-options label,
@@ -50,4 +50,8 @@
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+.get-recipes-btn {
+    margin-bottom: 300px;
 }
