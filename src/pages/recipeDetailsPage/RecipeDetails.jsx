@@ -1,19 +1,22 @@
-import {useState, useEffect} from 'react';
-import {useParams} from 'react-router-dom';
-import {getRecipeDetails} from '../../services/api.js';
-import './RecipeDetails.css'
-import SideCard from "../../components/sideCard/SideCard.jsx";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { getRecipeDetails } from '../../services/api.js';
+import './RecipeDetails.css';
+import SideCard from '../../components/sideCard/SideCard.jsx';
+import Loader from '../../components/loader/Loader.jsx';
 
 const RecipeDetails = () => {
-    const {recipeId} = useParams();
+    const { recipeId } = useParams();
     const [recipe, setRecipe] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchRecipeDetails = async () => {
             try {
                 const data = await getRecipeDetails(recipeId);
-                console.log("Recipe Details:", data);
+                console.log('Recipe Details:', data);
                 setRecipe(data);
+                setLoading(false);
             } catch (error) {
                 console.error('Error fetching recipe details:', error);
             }
@@ -21,8 +24,9 @@ const RecipeDetails = () => {
         fetchRecipeDetails();
     }, [recipeId]);
 
-    if (!recipe) {
-        return <div>Loading...</div>;
+    if (loading) {
+        // Display Loader component while loading
+        return <Loader />;
     }
 
     return (
@@ -69,7 +73,7 @@ const RecipeDetails = () => {
                 </section>
             </SideCard>
             <article className="recipe-instructions">
-                <img src={recipe.image} alt={recipe.title}/>
+                <img src={recipe.image} alt={recipe.title} />
                 <h3>Ingredients:</h3>
                 <ul>
                     {recipe.ingredients.map((ingredient, index) => (

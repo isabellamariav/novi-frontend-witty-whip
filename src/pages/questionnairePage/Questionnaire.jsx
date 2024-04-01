@@ -1,8 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import CardButton from '../../components/cardButton/CardButton.jsx';
-import {searchRecipes} from '../../services/api.js';
+import { searchRecipes } from '../../services/api.js';
 import RecipeCard from '../../components/recipeCard/RecipeCard.jsx';
 import SideCard from "../../components/sideCard/SideCard.jsx";
+import Loader from '../../components/loader/Loader.jsx'; // Import Loader component
 import './Questionnaire.css';
 
 const Questionnaire = () => {
@@ -13,13 +14,14 @@ const Questionnaire = () => {
     const [error, setError] = useState('');
     const [numRecipesToShow, setNumRecipesToShow] = useState(12);
     const [searchedRecipesCount, setSearchedRecipesCount] = useState(0);
+    const [loading, setLoading] = useState(false); // State to track loading status
 
     const handleMealTypeChange = (event) => {
         setMealType(event.target.value);
     };
 
     const handleDietaryRestrictionsChange = (event) => {
-        const {value, checked} = event.target;
+        const { value, checked } = event.target;
         if (checked) {
             setDietaryRestrictions(prev => [...prev, value]);
         } else {
@@ -28,7 +30,7 @@ const Questionnaire = () => {
     };
 
     const handleIntolerancesChange = (event) => {
-        const {value, checked} = event.target;
+        const { value, checked } = event.target;
         if (checked) {
             setIntolerances(prev => [...prev, value]);
         } else {
@@ -37,6 +39,7 @@ const Questionnaire = () => {
     };
 
     const getRecipes = async () => {
+        setLoading(true); // Set loading to true when fetching starts
         try {
             const query = `${mealType}&diet=${dietaryRestrictions.join(',')}&intolerances=${intolerances.join(',')}`;
             const data = await searchRecipes(query, numRecipesToShow);
@@ -47,6 +50,7 @@ const Questionnaire = () => {
             setRecipes([]);
             setError('No recipes found. Please try a different combination.');
         }
+        setLoading(false); // Set loading to false when fetching completes
     };
 
     const handleLoadMore = () => {
@@ -57,7 +61,7 @@ const Questionnaire = () => {
     return (
         <main className="questionnaire">
             <SideCard>
-                <form className="questions">
+                <section className="questions">
                     <div className="question">
                         <h2>Questionnaire</h2>
                         <h3>What meal type are you looking for?</h3>
@@ -156,11 +160,11 @@ const Questionnaire = () => {
                     <CardButton onClick={getRecipes} isActive={true}>
                         Get Recipes
                     </CardButton>
+                    {loading && <Loader />} {/* Render Loader while loading */}
                     <p></p>
-                </form>
+                </section>
             </SideCard>
             <section className="recipe-list">
-
                 {error && <p className="error-message">{error}</p>}
                 {recipes.map(recipe => (
                     <RecipeCard key={recipe.id} recipe={recipe}/>
