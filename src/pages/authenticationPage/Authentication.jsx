@@ -1,7 +1,7 @@
 import './Authentication.css';
 import { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import Loader from '../../components/loader/Loader.jsx';
+import { useAuth } from '../../context/AuthContext';
 import { auth } from '../../firebase/config.js';
 import {
     createUserWithEmailAndPassword,
@@ -12,7 +12,8 @@ import {
 import Input from '../../components/input/Input.jsx';
 import CardButton from '../../components/cardButton/CardButton.jsx';
 
-function Authentication({ setIsLoggedIn }) {
+function Authentication() {
+    const { signIn, signOut } = useAuth();
 
     const [isLoading, setIsLoading] = useState(true);
     const [authenticationType, setAuthenticationType] = useState('signin');
@@ -21,14 +22,15 @@ function Authentication({ setIsLoggedIn }) {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
+            setIsLoading(false);
             if (user) {
-                setIsLoading(false);
+                signIn(user);
             } else {
-                setIsLoading(false);
+                signOut();
             }
         });
         return () => unsubscribe();
-    }, []);
+    }, [signIn, signOut]);
 
     function handleCredentials(e) {
         setUserCredentials({ ...userCredentials, [e.target.name]: e.target.value });
@@ -41,7 +43,6 @@ function Authentication({ setIsLoggedIn }) {
         createUserWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
             .then((userCredential) => {
                 console.log(userCredential.user);
-                setIsLoggedIn(true);
             })
             .catch((error) => {
                 setError(error.message);
@@ -55,7 +56,6 @@ function Authentication({ setIsLoggedIn }) {
         signInWithEmailAndPassword(auth, userCredentials.email, userCredentials.password)
             .then((userCredential) => {
                 console.log(userCredential.user);
-                setIsLoggedIn(true);
             })
             .catch((error) => {
                 setError(error.message);
@@ -126,9 +126,5 @@ function Authentication({ setIsLoggedIn }) {
         </>
     )
 }
-
-Authentication.propTypes = {
-    setIsLoggedIn: PropTypes.func.isRequired
-};
 
 export default Authentication;
